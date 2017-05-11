@@ -30,18 +30,18 @@ export default {
 
   methods: {
     addTodo () {
-      this.$http.post('http://localhost:4000/api/todos', {todo: {description: this.$data.description}}).then((response) => {
+      this.$http.post('http://localhost:4001/api/todos', {todo: {description: this.$data.description}}).then((response) => {
         this.$data.todos.push(response.data.data)
       })
       return false
     },
     markAsDone (todo) {
       todo.done = true
-      this.$http.put('http://localhost:4000/api/todos/' + todo.id, {todo: todo})
+      this.$http.put('http://localhost:4001/api/todos/' + todo.id, {todo: todo})
     },
     fetchTodos () {
       // var todos = [{description: 'JLgDHfjdh'}]
-      this.$http.get('http://localhost:4000/api/todos').then((response) => {
+      this.$http.get('http://localhost:4001/api/todos').then((response) => {
         this.$data.todos = response.data.data
       })
 
